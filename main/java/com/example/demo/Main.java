@@ -1,5 +1,5 @@
 package com.example.demo;
-//comment
+
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -16,8 +16,7 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.Optional;
 import java.util.Scanner;
-//this is a comment
-//this is another comment
+
 public class Main extends Application {
     static final int WIDTH = 900;
     static final int HEIGHT = 900;
