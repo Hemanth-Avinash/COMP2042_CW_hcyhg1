@@ -1,9 +1,12 @@
 package com.example.demo;
 //addition of comment
 import javafx.application.Application;
+
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.ButtonType;
@@ -13,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.image.Image;
 
 import java.util.Optional;
 import java.util.Scanner;
@@ -34,7 +38,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+    	Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         Group menuRoot = new Group();
         Scene menuScene = new Scene(menuRoot, WIDTH, HEIGHT);
         Group accountRoot = new Group();
@@ -48,7 +52,10 @@ public class Main extends Application {
         BackgroundFill background_fill = new BackgroundFill(Color.rgb(120, 100, 100), CornerRadii.EMPTY, Insets.EMPTY);
         Background background = new Background(background_fill);
 
-
+        //gameScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+        //String css = this.getClass().getResource("application.css").toExternalForm();
+        //gameScene.getStylesheets().add(css);
+        
         Rectangle backgroundOfMenu = new Rectangle(240, 120, Color.rgb(120, 120, 120, 0.2));
         backgroundOfMenu.setX(WIDTH / 2 - 120);
         backgroundOfMenu.setY(180);
@@ -59,6 +66,9 @@ public class Main extends Application {
         backgroundOfMenuForPlay.setY(180);
         accountRoot.getChildren().add(backgroundOfMenuForPlay);
 
+       //Image icon = new Image("Icon.png");
+       //primaryStage.getIcons().add(icon);
+        
         Group gameRoot = new Group();
         setGameRoot(gameRoot);
         Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, Color.rgb(189, 177, 92));
