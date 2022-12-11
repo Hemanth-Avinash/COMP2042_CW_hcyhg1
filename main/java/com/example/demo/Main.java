@@ -31,9 +31,11 @@ import java.util.Scanner;
 public class Main extends Application {
 	static final int WIDTH = 900;
     static final int HEIGHT = 900;
+    //private theColour = 
     
     private Group gameRoot = new Group();
-    private Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, Color.rgb(189, 177, 92));
+   
+   /* private Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, );
     private static Scanner input= new Scanner(System.in);
     
     public void setGameScene(Scene gameScene) {
@@ -43,13 +45,13 @@ public class Main extends Application {
     public void setGameRoot(Group gameRoot) {
         this.gameRoot = gameRoot;
     }
-
+*/
     @Override
     public void start(Stage primaryStage) throws Exception {
     	
     	
     	Parent testRoot = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-    	
+    	primaryStage.setTitle("2048 Game");
     	Scene testScene = new Scene(testRoot);
     	primaryStage.setScene(testScene);
     	primaryStage.show();

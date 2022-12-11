@@ -10,7 +10,11 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.Random;
-
+/**
+ * This is the class initializing the variables for the GameScene
+ * @author Hemanth Avinash - modified
+ *
+ */
 class GameScene {
     private static int HEIGHT = 700;
     private static int n = 4;
@@ -30,6 +34,10 @@ class GameScene {
         return LENGTH;
     }
 
+    /**
+     * This randomly assigns a cell with a number 
+     * @param turn
+     */
     private void randomFillNumber(int turn) {
 
         Cell[][] emptyCells = new Cell[n][n];
@@ -143,7 +151,9 @@ class GameScene {
         }
         return -1;
     }
-
+/**
+ * this method allows user to input left key
+ */
     private void moveLeft() {
         for (int i = 0; i < n; i++) {
             for (int j = 1; j < n; j++) {
@@ -154,7 +164,9 @@ class GameScene {
             }
         }
     }
-
+/**
+ * this method allows user to input right key
+ */
     private void moveRight() {
         for (int i = 0; i < n; i++) {
             for (int j = n - 1; j >= 0; j--) {
@@ -165,7 +177,9 @@ class GameScene {
             }
         }
     }
-
+/**
+ * this method allows user to input up arrow key
+ */
     private void moveUp() {
         for (int j = 0; j < n; j++) {
             for (int i = 1; i < n; i++) {
@@ -177,19 +191,25 @@ class GameScene {
         }
 
     }
-
+/**
+ * this method allows user to input down arrow key
+ */
     private void moveDown() {
         for (int j = 0; j < n; j++) {
             for (int i = n - 1; i >= 0; i--) {
+            	//GameScene.this.sumCellNumbersToScore();
                 moveVertically(i, j, passDestination(i, j, 'd'), 1);
             }
+            //GameScene.this.sumCellNumbersToScore();
             for (int i = 0; i < n; i++) {
+            	//GameScene.this.sumCellNumbersToScore();
                 cells[i][j].setModify(false);
+                
             }
         }
 
     }
-
+//
     private boolean isValidDesH(int i, int j, int des, int sign) {
         if (des + sign < n && des + sign >= 0) {
             if (cells[i][des + sign].getNumber() == cells[i][j].getNumber() && !cells[i][des + sign].getModify()
@@ -284,15 +304,19 @@ class GameScene {
                 Platform.runLater(() -> {
                     int haveEmptyCell;
                     if (key.getCode() == KeyCode.DOWN) {
+                    	GameScene.this.sumCellNumbersToScore();
                         GameScene.this.moveDown();
                     } else if (key.getCode() == KeyCode.UP) {
+                    	GameScene.this.sumCellNumbersToScore();
                         GameScene.this.moveUp();
                     } else if (key.getCode() == KeyCode.LEFT) {
+                    	GameScene.this.sumCellNumbersToScore();
                         GameScene.this.moveLeft();
                     } else if (key.getCode() == KeyCode.RIGHT) {
+                    	GameScene.this.sumCellNumbersToScore();
                         GameScene.this.moveRight();
                     }
-                    GameScene.this.sumCellNumbersToScore();
+                   // GameScene.this.sumCellNumbersToScore();
                     scoreText.setText(score + "");
                     haveEmptyCell = GameScene.this.haveEmptyCell();
                     if (haveEmptyCell == -1) {

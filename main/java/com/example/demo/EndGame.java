@@ -25,7 +25,13 @@ public class EndGame {
             singleInstance= new EndGame();
         return singleInstance;
     }
-
+/**
+ * method returns the end game page and a quit option
+ * @param endGameScene
+ * @param root
+ * @param primaryStage
+ * @param score returns score to output
+ */
     public void endGameShow(Scene endGameScene, Group root, Stage primaryStage,long score){
         Text text = new Text("GAME OVER");
         text.relocate(250,250);

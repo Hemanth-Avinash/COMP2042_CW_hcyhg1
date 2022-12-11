@@ -29,6 +29,13 @@ public class MenuController {
     private Parent testroot;
     private Stage primaryStage;
     private Scene gameScene;
+    private Color thiscolor;
+    /**
+     * this allows for button to move to gameScene
+     * @param event the event to switch scenes
+     * @throws IOException
+     */
+    
     
     public void switchToScene1(ActionEvent event) throws IOException {
     	 
@@ -36,7 +43,7 @@ public class MenuController {
     	  
     	  Group gameRoot = new Group();
           //setGameRoot(gameRoot);
-          Scene gameScene = new Scene(gameRoot, 900, 900, Color.rgb(189, 177, 92));
+          Scene gameScene = new Scene(gameRoot, 900, 900, this.thiscolor);
           Group endgameRoot = new Group();
           Scene endGameScene = new Scene(endgameRoot, 900, 900, Color.rgb(250, 20, 100, 0.2));
 //          setGameScene(gameScene);
@@ -47,10 +54,14 @@ public class MenuController {
 	
     }
     
+    /**
+     * this methods allows button to switch Color for the user
+     */
    public void changeColour() {
     	
 		Color myColor = myColorPicker.getValue();
-    
+		thiscolor = myColorPicker.getValue();
+   
 		myPane.setBackground(new Background(new BackgroundFill(myColor, CornerRadii.EMPTY, Insets.EMPTY)));
 
     }
