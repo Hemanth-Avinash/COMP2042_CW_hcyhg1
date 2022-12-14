@@ -16,6 +16,12 @@ This is a code of the famous 2048 game in Java. The purpose of this assignment i
  - [Class Changes](#class-changes)
     - Added Classes
     - Modified Classes
+ - [Additions](#additions)
+    - [MenuController](#menucontroller)
+    - [EndGame](#endgame)
+ - [Maintenance](#maintenance)
+    - [Main](#main)
+    - [GameScene](#gamescene)
  </details>
 <!-- ⛔️ MD-MAGIC-EXAMPLE:END --> 
 
@@ -47,4 +53,58 @@ List of modified classes:
 * Controller.java
 * EndGame.java
 
+## Additions
+Additions | Explanation
+--------- | -----------
+Restart button | Allows users to restart the game even while mid game
+Logout button | Allows user to logout of the game instead of the screen just clearing
+Additional levels | Allows user to choose a difficulty level 
+Start button | User can access the game from the menu through a button
+
+### MenuController
+```java
+public void switchToScene1(ActionEvent event) throws IOException
+```
+This created the methods for the button to push to `GameScene.java`.
+```java
+public void changeColour() {
+    Color myColor = myColorPicker.getValue();
+```
+This allows for user to change all the screens colors including the `EndGame.java` screen.
+### EndGame
+```java
+primaryStage.close();
+```
+This allows the user to logout of the stage.
+## Maintenance 
+### Main
+```java
+Parent testRoot = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+primaryStage.setTitle("2048 Game");
+```
+This code is to allow the access to my Menu page and setting the title to "2048". 
+
+I moved the code from start method in `main.java` to my method in `MenuController.java` to make it more accessible. I only left the launch method in `main.java` as it should function more of an overview for the project and should not have any code for the menu n game scene itself.
+
+I removed the initialization of the variables in main as well.
+### GameScene
+```java
+if (key.getCode() == KeyCode.DOWN) {
+    GameScene.this.sumCellNumbersToScore();
+    GameScene.this.moveDown();
+ } else if (key.getCode() == KeyCode.UP) {
+    GameScene.this.sumCellNumbersToScore();
+    GameScene.this.moveUp();
+ } else if (key.getCode() == KeyCode.LEFT) {
+    GameScene.this.sumCellNumbersToScore();
+    GameScene.this.moveLeft();
+ } else if (key.getCode() == KeyCode.RIGHT) {
+    GameScene.this.sumCellNumbersToScore();
+     GameScene.this.moveRight();
+```
+This code fixes the bug where the player can use any input in game to increase the score. Now, the player can only input the arrow keys to increase the score.
+
+
+      
+     
 
