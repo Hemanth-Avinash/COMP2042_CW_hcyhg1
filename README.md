@@ -11,17 +11,16 @@ This is a code of the famous 2048 game in Java. The purpose of this assignment i
  - [Installation](#installation)
  - [Code Compilation](#code-compilation)
  - [Features](#features)
-    - Implemented
-    - Not Implemented
- - [Class Changes](#class-changes)
-    - Added Classes
-    - Modified Classes
- - [Additions](#additions)
-    - [MenuController](#menucontroller)
-    - [EndGame](#endgame)
- - [Maintenance](#maintenance)
-    - [Main](#main)
-    - [GameScene](#gamescene)
+    - [Implemented](#implemented)
+    - [Not Implemented](#not-implemented)
+ - [Changes](#changes)
+    - [Classes](#classes)
+    - [Additions](#additions)
+      - [MenuController](#menucontroller)
+      - [EndGame](#endgame)
+    - [Maintenance](#maintenance)
+      - [Main](#main)
+      - [GameScene](#gamescene)
  </details>
 <!-- ⛔️ MD-MAGIC-EXAMPLE:END --> 
 
@@ -32,28 +31,26 @@ You will need to install *Javafx, Eclipe or IntellJ* IDE for Java. You will also
 ## Code Compilation 
 You will need to download my src files for this code to compile them before adding the Javafx library.
 ## Features
-Here I will document a list of features i have implemented, whether working or not and also features i chose not to implement.
+### Implemented
 Features Implemented(Working) | Featured Implemeted(Not Working)
 -------------------- | -------------------------------
-Restart button in the game |  
-Logout function when pressing quit game | 
+Restart button in the game |  Scores add not according to the game standards
+Logout function when pressing quit game | Progress circle does not spin
 Additional levels to the game | 
 Fixing the score system | 
-
+### Not Implemented
 Features Not Implemeted | Explanation
 ----------------------- | -----------
-## Class Changes
-List of added classes:
-* MenuController.java
-* Menu.fxml
+## Changes
+### Classes
+| Added | Modified |
+| ----- | -------- |
+| MenuController.java | Main.java |
+| Menu.fxml | GameScene.java |
+| | Controller.java |
+| | EndGame.java |
 
-List of modified classes:
-* Main.java
-* GameScene.java
-* Controller.java
-* EndGame.java
-
-## Additions
+### Additions
 Additions | Explanation
 --------- | -----------
 Restart button | Allows users to restart the game even while mid game
@@ -61,7 +58,7 @@ Logout button | Allows user to logout of the game instead of the screen just cle
 Additional levels | Allows user to choose a difficulty level 
 Start button | User can access the game from the menu through a button
 
-### MenuController
+#### MenuController
 ```java
 public void switchToScene1(ActionEvent event) throws IOException
 ```
@@ -71,13 +68,13 @@ public void changeColour() {
     Color myColor = myColorPicker.getValue();
 ```
 This allows for user to change all the screens colors including the `EndGame.java` screen.
-### EndGame
+#### EndGame
 ```java
 primaryStage.close();
 ```
 This allows the user to logout of the stage.
 ## Maintenance 
-### Main
+#### Main
 ```java
 Parent testRoot = FXMLLoader.load(getClass().getResource("Menu.fxml"));
 primaryStage.setTitle("2048 Game");
@@ -87,7 +84,7 @@ This code is to allow the access to my Menu page and setting the title to "2048"
 I moved the code from start method in `main.java` to my method in `MenuController.java` to make it more accessible. I only left the launch method in `main.java` as it should function more of an overview for the project and should not have any code for the menu n game scene itself.
 
 I removed the initialization of the variables in main as well.
-### GameScene
+#### GameScene
 ```java
 if (key.getCode() == KeyCode.DOWN) {
     GameScene.this.sumCellNumbersToScore();
