@@ -1,6 +1,6 @@
 # COMP2042_CW_hcyhg1
 ## About
-This is a code of the famous 2048 game in Java. The purpose of this assignment is to *maintain* and *improve* the already given code. You can view the raw file of this `README.md` [here]().
+This is a code of the famous 2048 game in Java. The purpose of this assignment is to *maintain* and *improve* the already given code. You can view the raw file of this `README.md` [here](https://raw.githubusercontent.com/Hemanth-Avinash/COMP2042_CW_hcyhg1/main/README.md?token=GHSAT0AAAAAAB3DNFL4VHKLZZMONL7QBSNMY4Z5SWA).
 ## Table of Contents
 <!-- ⛔️ MD-MAGIC-EXAMPLE:START (TOC:collapse=true&collapseText=Click to expand) -->
 <details>
