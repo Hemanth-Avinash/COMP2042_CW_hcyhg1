@@ -30,16 +30,31 @@ I am *Hemanth Avinash* of the University of Nottingham Malaysia BSc Computer Sci
 ## Installation
 You will need to install *Javafx, Eclipe or IntellJ* IDE for Java. You will also need to add *Javafx* into your user library in your IDE. This can be done by going to Run Configurations and adding the Javafx root directory into your VN Arguments. You will also need to download *SceneBuilder* if you wish to configure the code.
 ## Code Compilation 
-You will need to download my src files for this code to compile them before adding the Javafx library.
+You will need to download my src files for this code to compile them before adding the Javafx library. You will also need to replace the path directory for your `test.csv` with your own directory. This has to be done in 2 places.
+### ScoreCard.java
+```java
+public void readCSV() {
+        String CsvFile = "C:\\Users\\Dragonfade\\git\\COMP2042_CW_hcyhg1\\main\\java\\com\\example\\demo\\pages\\test.csv";
+        String FieldDelimiter = ",";
+```
+### EndGame.java
+```java
+ try {
+ String file_name = "C:\\Users\\Dragonfade\\git\\COMP2042_CW_hcyhg1\\main\\java\\com\\example\\demo\\pages\\test.csv";
+ writer.writeToCsvFile(createCsvDataSpecial(file_name, user_name), new File(file_name));
+ FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Menu.fxml"));
+```
+This is to ensure the right path is chosen when trying to store the player names and score.
 ## Features
 ### Implemented
 Features Implemented(Working) | Featured Implemeted(Not Working)
 -------------------- | -------------------------------
 Restart button in the game | Progress circle does not spin
 Logout function when pressing quit game | Restart button is supposed to bring the game back to its original state
-Additional levels to the game |
+Additional levels to the game | `GameModel.java`
 Fixing the score system | 
 High Score Button |
+Level Difficulty Function |
 ### Not Implemented
 Features Not Implemeted | Explanation
 ----------------------- | -----------
@@ -52,8 +67,10 @@ Quit button | The Quit button is removed as the user might want to go back to me
 | ----- | -------- |
 | MenuController.java | Main.java |
 | Menu.fxml | GameScene.java |
-| GameUtil | Controller.java |
+| GameUtil.java | Controller.java |
 | text.csv | EndGame.java |
+| GameModel.java | |
+| ScoreCard.java | |
 
 ### Additions
 Additions | Explanation
@@ -65,26 +82,41 @@ Start button | User can access the game from the menu through a button
 High Score text field | User can input name and the score will be stored
 High Score Button | User can press button to see highscore list
 Alert | Alert will show up when user press other keys during game scene
+Home Button | Allows user to access the menu page from the game screen
 
 #### MenuController
 ```java
 public void switchToScene1(ActionEvent event) throws IOException
+public void switchToScene1(ActionEvent event) throws IOException {
+ gameLevel(event,4);
+public void switchToScene3(ActionEvent event) throws IOException {
+  gameLevel(event,6);
 ```
-This created the methods for the button to push to `GameScene.java`.
+This created the methods for the button to push to different events leading to `GameScene.java`.
 ```java
 public void changeColour() {
     Color myColor = myColorPicker.getValue();
 ```
 This allows for user to *change all the screens colors* including the `EndGame.java` screen.
+#### ScoreCard
+```java
+ public void readCSV() {
+
+        String CsvFile = "C:\\Users\\Dragonfade\\git\\COMP2042_CW_hcyhg1\\main\\java\\com\\example\\demo\\pages\\test.csv";
+        
+        String FieldDelimiter = ",";
+        BufferedReader br;
+```
+This allows for the User to read the scores on the highscore page.
 #### EndGame
 ```java
-primaryStage.close();
+try {
+  String file_name = "C:\\Users\\Dragonfade\\git\\COMP2042_CW_hcyhg1\\main\\java\\com\\example\\demo\\pages\\test.csv";
+  writer.writeToCsvFile(createCsvDataSpecial(file_name, user_name), new File(file_name));
 ```
-This allows the user to *logout* of the stage.
+This allows the user to input name after completing the game to store high score.
 #### GameUtil
-```java
-```
-
+This class contains all the method needed to run the game.
 ## Maintenance 
 #### Main
 ```java
@@ -98,20 +130,22 @@ I moved the code from start method in `main.java` to my method in `MenuControlle
 I removed the *initialization* of the variables in main as well.
 #### GameScene
 ```java
-if (key.getCode() == KeyCode.DOWN) {
-    GameScene.this.sumCellNumbersToScore();
-    GameScene.this.moveDown();
- } else if (key.getCode() == KeyCode.UP) {
-    GameScene.this.sumCellNumbersToScore();
-    GameScene.this.moveUp();
- } else if (key.getCode() == KeyCode.LEFT) {
-    GameScene.this.sumCellNumbersToScore();
-    GameScene.this.moveLeft();
- } else if (key.getCode() == KeyCode.RIGHT) {
-    GameScene.this.sumCellNumbersToScore();
-     GameScene.this.moveRight();
+if (null != key.getCode()) switch (key.getCode()) {
+                        case S:
+                            score = game_util.sumCellNumbersToScore(score);
+                            game_util.moveDown(score);
+                            
+                            break;
+                        case W:
+                            score = game_util.sumCellNumbersToScore(score);
+                            game_util.moveUp();
+
 ```
-This code fixes the bug where the player can use any input in game to increase the score. Now, the player can *only input the arrow keys* to increase the score.
+This code fixes the bug where the player can use any input in game to increase the score. Now, the player can *only input the WASD keys* to increase the score and the calculation of the score is more accurate.
+
+`GameScene.java` only contains the GUI interface for the screen. This is to make it more maintanable.
+
+
 
 
       
