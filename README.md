@@ -34,9 +34,9 @@ You will need to download my src files for this code to compile them before addi
 ### Implemented
 Features Implemented(Working) | Featured Implemeted(Not Working)
 -------------------- | -------------------------------
-Restart button in the game |  Scores add not according to the game standards
-Logout function when pressing quit game | Progress circle does not spin
-Additional levels to the game | Restart button is supposed to bring the game back to its original state
+Restart button in the game | Progress circle does not spin
+Logout function when pressing quit game | Restart button is supposed to bring the game back to its original state
+Additional levels to the game |
 Fixing the score system | 
 High Score Button |
 ### Not Implemented
@@ -44,14 +44,15 @@ Features Not Implemeted | Explanation
 ----------------------- | -----------
 The single start button | I replaced one single start button to 3 buttons, so the user can choose the levels to the game.
 Quit button | The Quit button is replaced with the name input at the end that follows with scene logout
+`Account.java` | This class was not required as I didnt use an account system
 ## Changes
 ### Classes
 | Added | Modified |
 | ----- | -------- |
 | MenuController.java | Main.java |
 | Menu.fxml | GameScene.java |
-| | Controller.java |
-| | EndGame.java |
+| GameUtil | Controller.java |
+| text.csv | EndGame.java |
 
 ### Additions
 Additions | Explanation
@@ -78,6 +79,10 @@ This allows for user to *change all the screens colors* including the `EndGame.j
 primaryStage.close();
 ```
 This allows the user to *logout* of the stage.
+#### GameUtil
+```java
+```
+
 ## Maintenance 
 #### Main
 ```java
