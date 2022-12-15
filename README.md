@@ -18,6 +18,7 @@ This is a code of the famous 2048 game in Java. The purpose of this assignment i
     - [Additions](#additions)
       - [MenuController](#menucontroller)
       - [EndGame](#endgame)
+      - [GameUtil](#gameutil)
     - [Maintenance](#maintenance)
       - [Main](#main)
       - [GameScene](#gamescene)
