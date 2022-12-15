@@ -43,7 +43,7 @@ High Score Button |
 Features Not Implemeted | Explanation
 ----------------------- | -----------
 The single start button | I replaced one single start button to 3 buttons, so the user can choose the levels to the game.
-Quit button | The Quit button is replaced with the name input at the end that follows with scene logout
+Quit button | The Quit button is removed as the user might want to go back to menu to see high score. The user can press the 'x' symbol to quit the GUI.
 `Account.java` | This class was not required as I didnt use an account system
 ## Changes
 ### Classes
@@ -63,6 +63,7 @@ Additional levels | Allows user to choose a difficulty level
 Start button | User can access the game from the menu through a button
 High Score text field | User can input name and the score will be stored
 High Score Button | User can press button to see highscore list
+Alert | Alert will show up when user press other keys during game scene
 
 #### MenuController
 ```java
