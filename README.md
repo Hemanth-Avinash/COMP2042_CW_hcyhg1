@@ -27,7 +27,7 @@ This is a code of the famous 2048 game in Java. The purpose of this assignment i
 ## Author
 I am *Hemanth Avinash* of the University of Nottingham Malaysia BSc Computer Science course. My student id is *20414672*.
 ## Installation
-You will need to install *Javafx, Eclipe or IntellJ* IDE for Java. You will also need to add *Javafx* into your user library in your IDE. This can be done by going to Run Configurations and adding the Javafx root directory into your VN Arguments.
+You will need to install *Javafx, Eclipe or IntellJ* IDE for Java. You will also need to add *Javafx* into your user library in your IDE. This can be done by going to Run Configurations and adding the Javafx root directory into your VN Arguments. You will also need to download *SceneBuilder* if you wish to configure the code.
 ## Code Compilation 
 You will need to download my src files for this code to compile them before adding the Javafx library.
 ## Features
@@ -36,11 +36,13 @@ Features Implemented(Working) | Featured Implemeted(Not Working)
 -------------------- | -------------------------------
 Restart button in the game |  Scores add not according to the game standards
 Logout function when pressing quit game | Progress circle does not spin
-Additional levels to the game | 
+Additional levels to the game | Restart button is supposed to bring the game back to its original state
 Fixing the score system | 
 ### Not Implemented
 Features Not Implemeted | Explanation
 ----------------------- | -----------
+The single start button | I replaced one single start button to 3 buttons, so the user can choose the levels to the game.
+Quit button | The Quit button is replaced with the name input at the end that follows with scene logout
 ## Changes
 ### Classes
 | Added | Modified |
@@ -57,6 +59,7 @@ Restart button | Allows users to restart the game even while mid game
 Logout button | Allows user to logout of the game instead of the screen just clearing
 Additional levels | Allows user to choose a difficulty level 
 Start button | User can access the game from the menu through a button
+High Score | User can input name and the score will be stored
 
 #### MenuController
 ```java
@@ -67,23 +70,23 @@ This created the methods for the button to push to `GameScene.java`.
 public void changeColour() {
     Color myColor = myColorPicker.getValue();
 ```
-This allows for user to change all the screens colors including the `EndGame.java` screen.
+This allows for user to *change all the screens colors* including the `EndGame.java` screen.
 #### EndGame
 ```java
 primaryStage.close();
 ```
-This allows the user to logout of the stage.
+This allows the user to *logout* of the stage.
 ## Maintenance 
 #### Main
 ```java
 Parent testRoot = FXMLLoader.load(getClass().getResource("Menu.fxml"));
 primaryStage.setTitle("2048 Game");
 ```
-This code is to allow the access to my Menu page and setting the title to "2048". 
+This code is to allow the *user to access my Menu page* and setting the title to "2048". 
 
-I moved the code from start method in `main.java` to my method in `MenuController.java` to make it more accessible. I only left the launch method in `main.java` as it should function more of an overview for the project and should not have any code for the menu n game scene itself.
+I moved the code from start method in `main.java` to my method in `MenuController.java` to make it more *accessible*. I only left the launch method in `main.java` as it should function more of an *overview for the project* and should not have any code for the menu n game scene itself.
 
-I removed the initialization of the variables in main as well.
+I removed the *initialization* of the variables in main as well.
 #### GameScene
 ```java
 if (key.getCode() == KeyCode.DOWN) {
@@ -99,7 +102,7 @@ if (key.getCode() == KeyCode.DOWN) {
     GameScene.this.sumCellNumbersToScore();
      GameScene.this.moveRight();
 ```
-This code fixes the bug where the player can use any input in game to increase the score. Now, the player can only input the arrow keys to increase the score.
+This code fixes the bug where the player can use any input in game to increase the score. Now, the player can *only input the arrow keys* to increase the score.
 
 
       
