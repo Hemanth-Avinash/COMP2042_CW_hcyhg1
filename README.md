@@ -38,6 +38,7 @@ Restart button in the game |  Scores add not according to the game standards
 Logout function when pressing quit game | Progress circle does not spin
 Additional levels to the game | Restart button is supposed to bring the game back to its original state
 Fixing the score system | 
+High Score Button |
 ### Not Implemented
 Features Not Implemeted | Explanation
 ----------------------- | -----------
@@ -59,7 +60,8 @@ Restart button | Allows users to restart the game even while mid game
 Logout button | Allows user to logout of the game instead of the screen just clearing
 Additional levels | Allows user to choose a difficulty level 
 Start button | User can access the game from the menu through a button
-High Score | User can input name and the score will be stored
+High Score text field | User can input name and the score will be stored
+High Score Button | User can press button to see highscore list
 
 #### MenuController
 ```java
