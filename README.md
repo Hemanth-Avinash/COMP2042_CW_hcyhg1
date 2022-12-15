@@ -146,6 +146,16 @@ This code fixes the bug where the player can use any input in game to increase t
 
 `GameScene.java` only contains the GUI interface for the screen. This is to make it more maintanable.
 
+I have also repackaged the classes into meaningful packages; 
+* `com.example.demo`
+* `com.example.demo.controller`
+* `com.example.demo.model`
+* `com.example.demo.pages`
+* `util`
+
+This project also has a `module-info.java`.
+
+
 
 
 
