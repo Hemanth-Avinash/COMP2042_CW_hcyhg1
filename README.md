@@ -30,7 +30,7 @@ This is a code of the famous 2048 game in Java. The purpose of this assignment i
 I am *Hemanth Avinash* of the University of Nottingham Malaysia BSc Computer Science course. My student id is *20414672*.
 ## Installation
 You will find the code in main/main. Use the internal main folder as your project. 
-You will need to install *Javafx, Eclipe or IntellJ* IDE for Java. You will also need to add *Javafx* into your user library in your IDE. This can be done by going to Run Configurations and adding the Javafx root directory into your VN Arguments. You will also need to download *SceneBuilder* if you wish to configure the code.
+You will need to install *Javafx, Eclipe or IntellJ* IDE for Java. You will also need to add *Javafx* into your user library in your IDE. This can be done by going to Run Configurations and adding the Javafx root directory into your VN Arguments. You will also need to download *SceneBuilder* if you wish to configure the code. [Here](https://www.youtube.com/watch?v=bC4XB6JAaoU) I will link a video to explain how to properly add javafx to your user library.
 ## Code Compilation 
 You will need to download my src files for this code to compile them before adding the Javafx library. You will also need to replace the path directory for your `test.csv` with your own directory. This has to be done in 2 places.
 ### ScoreCard.java
